@@ -1,0 +1,13 @@
+app:
+  access-token: ${ACCESS_TOKEN}
+  services:
+    personal:
+      url: https://graph.microsoft.com/v1.0/me
+      method: GET
+    joined-teams:
+      url: https://graph.microsoft.com/v1.0/me/joinedTeams
+      method: GET
+      pattern: "^Grp_T_(\\S{3,5})_(\\S{10})_(\\d+)$"
+    delete-member:
+      url: https://graph.microsoft.com/v1.0/groups/{groupId}/members/{memberId}/$ref
+      method: DELETE
