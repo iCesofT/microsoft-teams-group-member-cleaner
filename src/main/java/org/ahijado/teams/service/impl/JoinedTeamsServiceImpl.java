@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 public class JoinedTeamsServiceImpl extends BaseService implements JoinedTeamsService {
 
-    @Value("${app.services.joined-teams.url}")
+    @Value("${app.services.joined-teams.endpoint}")
     private String serviceUrl;
 
     @Value("${app.services.joined-teams.method}")

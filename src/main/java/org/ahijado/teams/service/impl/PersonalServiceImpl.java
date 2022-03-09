@@ -14,7 +14,7 @@ import java.util.Optional;
 @Slf4j
 public class PersonalServiceImpl extends BaseService implements PersonalService {
 
-    @Value("${app.services.personal.url}")
+    @Value("${app.services.personal.endpoint}")
     private String serviceUrl;
 
     @Value("${app.services.personal.method}")

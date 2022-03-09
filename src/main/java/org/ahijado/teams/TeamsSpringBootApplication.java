@@ -8,10 +8,12 @@ import org.ahijado.teams.model.TeamList;
 import org.ahijado.teams.service.DeleteMemberService;
 import org.ahijado.teams.service.JoinedTeamsService;
 import org.ahijado.teams.service.PersonalService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,15 +32,16 @@ public class TeamsSpringBootApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Optional<PersonalInfo> info = personalService.getPersonalInfo();
-        if (info.isPresent()) {
-            log.info("Personal info: {}", info.get());
+        Optional<PersonalInfo> optInfo = personalService.getPersonalInfo();
+        if (optInfo.isPresent()) {
+            PersonalInfo info = optInfo.get();
+            log.info("Personal info: {}", info);
 
             List<TeamInfo> teamList = joinedTeamsService.getJoinedTeams();
             log.info("Joined teams: {}", teamList);
 
             teamList.forEach(team -> {
-                deleteMemberService.deleteMember(team, info.get());
+                deleteMemberService.deleteMember(team, info);
             });
         }
     }

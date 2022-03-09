@@ -6,7 +6,15 @@ The application does these steps:
 
 - Get your user's information (needed to get your Microsoft Teams id).
 - Get the groups you are a member of. It filters out the groups with a pattern in the name.
-- Finally it removes your user from the filtered groups.
+- Finally it removes your user from the filtered groups. If the group is the whitelist, it will not be removed.
+
+```yaml
+app:
+  services:
+    delete-member:
+      white-list:
+        Grp_T_NAME_Project_1234
+```
 
 To run the application, you need to have the following environment variable set:
 - `ACCESS_TOKEN`: Your Microsoft Teams access token. You can get it from the Microsoft Graph Explorer.

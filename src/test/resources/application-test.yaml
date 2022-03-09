@@ -1,0 +1,4 @@
+app:
+  services:
+    delete-member:
+      enabled: false
