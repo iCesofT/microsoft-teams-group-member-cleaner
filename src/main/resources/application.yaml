@@ -9,8 +9,13 @@ app:
       method: GET
       pattern: "^Grp_T_(\\S{3,5})_(\\S{10})_(\\d+)$"
     delete-member:
-      enabled: true
+      enabled: ${DELETE_GROUPS:true}
       endpoint: https://graph.microsoft.com/v1.0/groups/{groupId}/members/{memberId}/$ref
       method: DELETE
       white-list:
-         Grp_T_NAME_Project_1234
+        Grp_T_NAME_Project_1234
+#        Grp_T_INDIT_AmpliacinS_6051
+#        Grp_T_INDIT_AmpliacinS_6052
+#        Grp_T_INDIT_AmpliacinS_6053
+#        Grp_T_GRUPO_AmpliacinS_6055
+

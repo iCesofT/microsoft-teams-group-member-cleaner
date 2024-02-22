@@ -18,6 +18,7 @@ app:
 
 To run the application, you need to have the following environment variable set:
 - `ACCESS_TOKEN`: Your Microsoft Teams access token. You can get it from the Microsoft Graph Explorer.
+- `DELETE_GROUPS`: If you want to delete the groups, set this to `true`.
 
 ## Resources:
 

@@ -8,12 +8,10 @@ import org.ahijado.teams.model.TeamList;
 import org.ahijado.teams.service.DeleteMemberService;
 import org.ahijado.teams.service.JoinedTeamsService;
 import org.ahijado.teams.service.PersonalService;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,6 +37,8 @@ public class TeamsSpringBootApplication implements CommandLineRunner {
 
             List<TeamInfo> teamList = joinedTeamsService.getJoinedTeams();
             log.info("Joined teams: {}", teamList);
+
+            deleteMemberService.showWhiteList();
 
             teamList.forEach(team -> {
                 deleteMemberService.deleteMember(team, info);
